@@ -24,3 +24,6 @@ target/
 .idea
 .vscode
 .mvn/maven.config
+
+# OpenCode
+.opencode/
