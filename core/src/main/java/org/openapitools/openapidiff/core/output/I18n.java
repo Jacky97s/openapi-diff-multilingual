@@ -11,14 +11,14 @@ import java.util.ResourceBundle;
 public final class I18n {
 
   private static final String BUNDLE_NAME = "i18n.messages";
-  private static Locale currentLocale = Locale.ENGLISH;
-  private static ResourceBundle bundle = loadBundle(currentLocale);
+  private static volatile Locale currentLocale = Locale.ENGLISH;
+  private static volatile ResourceBundle bundle = loadBundle(currentLocale);
 
   private I18n() {}
 
-  public static void setLocale(Locale locale) {
-    currentLocale = locale;
+  public static synchronized void setLocale(Locale locale) {
     bundle = loadBundle(locale);
+    currentLocale = locale;
   }
 
   public static Locale getLocale() {
