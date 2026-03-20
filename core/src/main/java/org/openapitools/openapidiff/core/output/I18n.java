@@ -35,6 +35,12 @@ public final class I18n {
 
   public static Locale parseLocale(String lang) {
     switch (lang.toLowerCase().replace("_", "-")) {
+      case "zh-hant":
+      case "zh-tw":
+        return Locale.TRADITIONAL_CHINESE;
+      case "zh-hans":
+      case "zh-cn":
+        return Locale.SIMPLIFIED_CHINESE;
       case "en":
       default:
         return Locale.ENGLISH;
