@@ -358,6 +358,9 @@ public class ConsoleRender implements Render {
   }
 
   static int displayWidth(String text) {
+    if (text == null) {
+      return 0;
+    }
     int width = 0;
     for (int i = 0; i < text.length(); i++) {
       char c = text.charAt(i);
@@ -385,6 +388,9 @@ public class ConsoleRender implements Render {
   }
 
   static String centerCjk(String text, int width) {
+    if (text == null) {
+      text = "";
+    }
     int textWidth = displayWidth(text);
     if (textWidth >= width) {
       return text;
